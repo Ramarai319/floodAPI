@@ -1,0 +1,35 @@
+<%- include('partials/headNav') %>
+<div class="headContainer">
+    <h1>Flood warnings with severity level <%= level%>: </h1>
+    
+        <% const bucket = floodData.map(data => data.severityLevel).filter(num => num % level === 0) %>
+        <p class="numberOfWarnings">There are currently <%= bucket.length %> warnings with severity level <%= level%></p>
+</div>
+<hr>
+        <div class="container">
+            <% if (floodData){ %>
+                <% floodData.forEach(flood => { %>  <!-- Loop through each item in the floodData array -->
+                    <% if(Number(flood.severityLevel) ===  Number(level) ) { %>
+                    <ul>
+                        <li><p><b>Area Name:</b> <%= flood.eaAreaName %></p></li> <!-- Display areaName -->
+                        <li><p><b>Description:</b> <%= flood.description %></p></li> <!-- Display description -->
+                        <li><p><b>County:</b> <%= flood.floodArea?.county || "N/A" %></p></li> <!-- Display county (with fallback) -->
+                        <li><p><b>Severity Level:</b> <%= flood.severityLevel || "N/A" %></p> </li><!-- Display severity level -->
+                        <li><p><b>River/Sea:</b> <%= flood.floodArea?.riverOrSea || "N/A" %></p> </li><!-- Display river/sea (with fallback) -->
+                    </ul>
+                    <a href="/severe/<%= flood.severityLevel%>/<%= flood.floodAreaID %>">more details</a>
+                    <hr>
+                <% }}) %> 
+            <% } else{ %>
+                <h3>No flood warning at level <%= level%> in this moment.</h3>
+            <% } %>
+        </div>
+       
+    <script>
+        let  bucket =  function (n){
+    const res =  floodData.map(data => data.severityLevel).filter(num => num % n === 0)
+    return `There are currently ${res.length} warnings with severity level ${level}`
+}
+    </script>
+</body>
+</html>

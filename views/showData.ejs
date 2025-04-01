@@ -1,0 +1,46 @@
+<%- include('partials/headNav') %>
+<div class="headContainer">
+
+    <h1>All current flood warning</h1>
+
+    <p class="numberOfWarnings">There are currently <%=floodData.length%> warnings published by the environent flood agency.</p>
+    <form action='/severe/:level' method="get" id="form">
+        <label for="level">Get flood warning based on the severity level:</label> 
+        <select name="level" id="dropDown" >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <button>search</button>
+    </form>
+</div>
+    <hr>
+    <div class="container">
+    <% floodData.forEach(flood => { %> 
+        <ul>
+            <li><p><b>Area Name:</b> <%= flood.eaAreaName %></p></li> 
+            <li><p><b>Description:</b> <%= flood.description %></p></li> 
+            <li><p><b>County:</b> <%= flood.floodArea?.county || "N/A" %></p></li> 
+            <li><p><b>Severity Level:</b> <%= flood.severityLevel || "N/A" %></p> </li>
+            <li><p><b>River/Sea:</b> <%= flood.floodArea?.riverOrSea || "N/A" %></p> </li>
+        </ul>
+        <hr>
+    <% }) %>
+    </div>
+</body>
+<script>
+    const form = document.querySelector('#form')
+    const dropDown = document.querySelector('#dropDown')
+
+    form.addEventListener('submit', function(e){
+
+        e.preventDefault();
+
+        let level = dropDown.value 
+        form.action = `/severe/${level}`
+        form.submit()
+    })
+</script>
+
+</html>

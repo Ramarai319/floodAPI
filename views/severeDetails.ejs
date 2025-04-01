@@ -1,0 +1,28 @@
+<%- include('partials/headNav') %>
+<div class="headContainer">
+    <h1>Flood warnings details for <%= floodData.eaAreaName %> : </h1>
+    <p class="numberOfWarnings">There are currently <%= floodData.length %> warnings with severity level <%= level %></p>
+</div>
+<hr>
+    <div class="container">
+        <% if (floodData){ %>
+        
+                <ul>
+                    <li><p><b>Area Name:</b> <%= floodData.eaAreaName %></p></li> <!-- Display areaName -->
+                    <li><p><b>Description:</b> <%= floodData.description %></p></li> <!-- Display description -->
+                    <li><p><b>County:</b> <%= floodData.floodArea?.county || "N/A" %></p></li> <!-- Display county (with fallback) -->
+                    <li><p><b>Severity Level:</b> <%= floodData.severityLevel || "N/A" %></p> </li><!-- Display severity level -->
+                    <li><p><b>River/Sea:</b> <%= floodData.floodArea?.riverOrSea || "N/A" %></p> </li><!-- Display river/sea (with fallback) -->
+                </ul>
+                <p><b>Time raised-</b> <%= floodData.timeRaised %></p>
+                <p><b>Time severity changed-</b> <%= floodData.timeSeverityChanged %></p>
+                <p><b>Time message changed-</b> <%= floodData.timeMessageChanged %></p>
+                <% if(floodData.message === ' ' || ''){ %>
+                    <p>Message- 'No message available for this warning'</p>
+                <% } else{ %>
+                    <p>Message- <%= floodData.message %> </p>
+        <% }} %>
+    </div>
+ <hr>
+</body>
+</html>

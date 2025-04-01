@@ -1,0 +1,57 @@
+<%- include('partials/headNav') %>
+<body>
+    <div class="headContainer">
+    <h1>Flood Warning Data HOME</h1>
+
+    <p>This webpage uses the data published from the Environment Agency Real Time flood-monitoring API to 
+    display flood warnings and flood alerts. Water levels and flows are regularly monitored, usually every 15 minutes.
+    However, data is transferred back to the Environment Agency at various frequencies, usually depending on the site
+    and level of flood risk. Transfer of data is typically once or twice per day, but usually increases during times 
+    of heightened flood risk.</p>
+</div>
+    <div class="container">
+    <h2>Flood Warnings</h2>
+    <p>The Environment Agency issue warnings of floods that cover specific warning or alert areas. The floods API provides a listing of all current such warnings and is updated every 15 minutes.
+
+    A warning may be at one of four possible severity levels:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Level</th>
+                <th>Name</th>
+                <th>Meaning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Severe Flood Warning</td>
+                <td>Severe Flooding, Danger to Life.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Flood Warning</td>
+                <td>Flooding is Expected, Immediate Action Required.</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Flood Alert</td>
+                <td>Flooding is Possible, Be Prepared.</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Warning no Longer in Force</td>
+                <td>The warning is no longer in force.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="/allData">Show all flood warnings</a>
+</div>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <script src="/floodScript.js"></script>
+</body>
+</html>

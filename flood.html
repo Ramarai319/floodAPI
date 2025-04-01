@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fllod-warning</title>
+    <link rel="stylesheet" href="flood.css">
+</head>
+<body>
+    <h1>Flood Warning</h1>
+
+    <h2>Flood Warning Levels</h2>
+    <table>
+        <tr>
+            <th>Level</th>
+            <th>Name</th>
+            <th>Meaning</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Severe Flood Warning</td>
+            <td>Severe Flooding, Danger to Life.</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Flood Warning</td>
+            <td>Flooding is Expected, Immediate Action Required.</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Flood Alert</td>
+            <td>Flooding is Possible, Be Prepared.</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Warning no Longer in Force</td>
+            <td>The warning is no longer in force.</td>
+        </tr>
+    <label for="">Is your county at risk of flood? </label>
+    <input type="text" id="County">
+    <button id="floodButton">Search</button>
+    <div id="severeDiv"></div>
+
+    <label for="">Check severity levels</label>
+    <select name="" id="countryDropdown">
+        <option value=""></option>
+    </select>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <script src="flood.js"></script>
+</body>
+</html>
