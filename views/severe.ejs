@@ -3,7 +3,7 @@
     <h1>Flood warnings with severity level <%= level%>: </h1>
     
         <% const bucket = floodData.map(data => data.severityLevel).filter(num => num % level === 0) %>
-        <p class="numberOfWarnings">There are currently <%= bucket.length %> warnings with severity level <%= level%></p>
+        <p class="numberOfWarnings">There are currently <%= bucket.length %> flood warnings with severity level <b><%= level%></b></p>
 </div>
 <hr>
         <div class="container">
@@ -17,7 +17,7 @@
                         <li><p><b>Severity Level:</b> <%= flood.severityLevel || "N/A" %></p> </li><!-- Display severity level -->
                         <li><p><b>River/Sea:</b> <%= flood.floodArea?.riverOrSea || "N/A" %></p> </li><!-- Display river/sea (with fallback) -->
                     </ul>
-                    <a href="/severe/<%= flood.severityLevel%>/<%= flood.floodAreaID %>">more details</a>
+                    <a href="/severe/<%= flood.severityLevel%>/<%= flood.floodAreaID %>">Details</a>
                     <hr>
                 <% }}) %> 
             <% } else{ %>
