@@ -8,14 +8,14 @@
 <hr>
         <div class="container">
             <% if (floodData){ %>
-                <% floodData.forEach(flood => { %>  <!-- Loop through each item in the floodData array -->
+                <% floodData.forEach(flood => { %>  
                     <% if(Number(flood.severityLevel) ===  Number(level) ) { %>
                     <ul>
-                        <li><p><b>Area Name:</b> <%= flood.eaAreaName %></p></li> <!-- Display areaName -->
-                        <li><p><b>Description:</b> <%= flood.description %></p></li> <!-- Display description -->
-                        <li><p><b>County:</b> <%= flood.floodArea?.county || "N/A" %></p></li> <!-- Display county (with fallback) -->
-                        <li><p><b>Severity Level:</b> <%= flood.severityLevel || "N/A" %></p> </li><!-- Display severity level -->
-                        <li><p><b>River/Sea:</b> <%= flood.floodArea?.riverOrSea || "N/A" %></p> </li><!-- Display river/sea (with fallback) -->
+                        <li><p><b>Area Name:</b> <%= flood.eaAreaName %></p></li> 
+                        <li><p><b>Description:</b> <%= flood.description %></p></li> 
+                        <li><p><b>County:</b> <%= flood.floodArea?.county || "N/A" %></p></li> 
+                        <li><p><b>Severity Level:</b> <%= flood.severityLevel || "N/A" %></p> </li>
+                        <li><p><b>River/Sea:</b> <%= flood.floodArea?.riverOrSea || "N/A" %></p> </li>
                     </ul>
                     <a href="/severe/<%= flood.severityLevel%>/<%= flood.floodAreaID %>">Details</a>
                     <hr>
